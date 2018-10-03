@@ -26,7 +26,7 @@ public class DoMath {
 		System.out.println("The value is prime: " + Calculate.isPrime(13));
 		System.out.println("The gcf of the values is: " + Calculate.gcf(200, 100));
 		System.out.println("The sqrt of the value is: " + Calculate.sqrt(123));
-		//System.out.println("The roots are: " + Calculate.quadForm(1,2,1));
+		System.out.println("The roots are: " + Calculate.quadForm(1,2,1));
 }
 
 }

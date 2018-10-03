@@ -1,6 +1,6 @@
 /* This class contains the method to do various math related tasks 
    Audrey Kim - APCS A 2nd
-   Version 1(??) October 1, 2018 */
+   Version 2(??) October 2, 2018 */
 
 public class Calculate {
 	
@@ -126,19 +126,19 @@ public class Calculate {
 	}
 	
 	//Returns factorial of value passed 
-	public static int factorial(int x) {
+	public static int factorial(int x) { //REVISED
 		if (x < 0) {
 			throw new IllegalArgumentException("Method does not accept negative values");
 		}
 		int answer = 1; 
 		for (int i=1; i<= x; i++) {
-			answer = answer*x; 
+			answer *= i; 
 		}
 		return answer; 
 	}
 	
 	// Determines whether or not integer is prime 
-	public static boolean isPrime(int x) { //REFINED
+	public static boolean isPrime(int x) { //REVISED
 		if (x>=2) {
 			for (int i = 2; x>i; i++) {
 				if (isDivisibleBy(x, i)) {
@@ -178,14 +178,18 @@ public class Calculate {
 	} 
 	
 	//Uses coefficients of quadratic equation in standard form and approximates real roots 
-//	public static String quadForm(int a, int b, int c) {
-//		double root1 = ((-1*b) + sqrt((square(b) - 4*a*c)))/2*a;
-//		double root2 = ((-1*b) - sqrt((square(b) - 4*a*c)))/2*a;
-//		if (root1 < 0 || root2 < 0) {
-//			throw new IllegalArgumentException("no real roots");
-//		}
-//		
-//		return "";
-//		
-//	}
+	public static String quadForm(int a, int b, int c) {
+		double discrim = discriminant(a,b,c);
+		if (discrim < 0) {
+			return ("No real roots");
+		}
+		double root1 = ((-1*b) + sqrt((square(b) - 4*a*c)))/2*a;
+		double root2 = ((-1*b) - sqrt((square(b) - 4*a*c)))/2*a;
+		double rounded1 = round2(root1);
+		double rounded2 = round2(root2);
+		if (root1 == root2) {
+			return (rounded1 + "");
+		}
+		return (rounded1 + " and " + rounded2);
+	}
 }
